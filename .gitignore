@@ -1,8 +1,9 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
+# Dependencies
 /node_modules
 /.pnp
+.pnp.js
 .pnp.*
 .yarn/*
 !.yarn/patches
@@ -10,32 +11,71 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
+# Testing
 /coverage
+*.lcov
+.nyc_output
 
-# next.js
+# Next.js
 /.next/
 /out/
+.next
 
-# production
+# Production
 /build
+/dist
 
-# misc
+# Misc
 .DS_Store
 *.pem
+.idea
+.vscode
+*.swp
+*.swo
+*~
 
-# debug
+# Debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+lerna-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# Environment variables
+# Keep .env.example but ignore actual env files
+.env
+.env*.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# vercel
+# Vercel
 .vercel
 
-# typescript
+# TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# Prisma
+/app/generated/prisma
+
+# SQLite database - INCLUDED IN GIT for demo purposes
+# prisma/dev.db
+# prisma/dev.db-journal
+# Note: Database is intentionally tracked for easy setup
+
+# OS
+Thumbs.db
+
+# IDEs
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.sublime-project
+*.sublime-workspace
+
+# Temporary files
+*.tmp
+*.temp

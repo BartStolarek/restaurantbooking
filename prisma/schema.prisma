@@ -1,0 +1,87 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  CUSTOMER
+  STAFF
+  MANAGER
+}
+
+enum TableStatus {
+  AVAILABLE
+  OCCUPIED
+  RESERVED
+}
+
+enum BookingType {
+  RESERVATION
+  WALKIN
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  SEATED
+  COMPLETED
+  CANCELLED
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  phone     String?
+  role      Role     @default(CUSTOMER)
+  createdAt DateTime @default(now())
+  bookings  Booking[]
+}
+
+model Table {
+  id          String      @id @default(cuid())
+  tableNumber Int         @unique
+  capacity    Int
+  status      TableStatus @default(AVAILABLE)
+  location    String?
+  bookings    Booking[]
+}
+
+model Booking {
+  id                String          @id @default(cuid())
+  userId            String
+  user              User            @relation(fields: [userId], references: [id])
+  tableId           String?
+  table             Table?          @relation(fields: [tableId], references: [id])
+  partySize         Int
+  bookingType       BookingType
+  status            BookingStatus   @default(PENDING)
+  bookingTime       DateTime
+  estimatedDuration Int?            // in minutes
+  actualStartTime   DateTime?
+  actualEndTime     DateTime?
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+  bookingHistory    BookingHistory?
+}
+
+model BookingHistory {
+  id             String   @id @default(cuid())
+  bookingId      String   @unique
+  booking        Booking  @relation(fields: [bookingId], references: [id])
+  partySize      Int
+  actualDuration Int      // in minutes
+  tableCapacity  Int
+  dayOfWeek      Int      // 0-6 (Sunday-Saturday)
+  timeOfDay      Int      // Hour in 24h format (0-23)
+  date           DateTime
+  createdAt      DateTime @default(now())
+}
