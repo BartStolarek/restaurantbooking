@@ -17,7 +17,7 @@ The database has been automatically configured with **SQLite** - no database ser
 npm run dev
 ```
 
-Then visit: **http://localhost:3010**
+Then visit: **http://localhost:3020**
 
 ## 👤 Login Credentials
 

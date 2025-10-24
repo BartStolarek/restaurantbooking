@@ -32,8 +32,8 @@ The seed script creates three demo accounts for testing:
 
 ## Application URL
 
-- **Local Development**: http://localhost:3010
-- **Note**: The application now runs on port **3010** by default
+- **Local Development**: http://localhost:3020
+- **Note**: The application now runs on port **3020** by default
 
 ## How to Set Up
 
@@ -56,7 +56,7 @@ npm run dev
 ## Creating Additional Users
 
 ### Via Sign Up Page
-- Go to http://localhost:3010/auth/signup
+- Go to http://localhost:3020/auth/signup
 - Fill in the form (new users are created as CUSTOMER role)
 
 ### Via Database (for Staff/Manager roles)
@@ -80,7 +80,7 @@ npm run dev
 2. Update `DATABASE_URL` in `.env` with your database credentials
 3. Run: `npm run db:migrate && npm run db:seed`
 4. Run: `npm run dev`
-5. Visit: http://localhost:3010
+5. Visit: http://localhost:3020
 6. Log in with any of the accounts above!
 
 ---

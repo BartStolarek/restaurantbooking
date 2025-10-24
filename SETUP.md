@@ -68,7 +68,7 @@ This creates:
 npm run dev
 ```
 
-Visit [http://localhost:3010](http://localhost:3010)
+Visit [http://localhost:3020](http://localhost:3020)
 
 ## Demo Accounts
 

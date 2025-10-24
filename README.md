@@ -60,7 +60,7 @@ npm install --legacy-peer-deps
 The `.env` file is already set up with:
 ```env
 DATABASE_URL="file:./prisma/dev.db"
-NEXTAUTH_URL="http://localhost:3010"
+NEXTAUTH_URL="http://localhost:3020"
 NEXTAUTH_SECRET="your-secret-key-here"
 ```
 
@@ -83,7 +83,7 @@ This creates:
 npm run dev
 ```
 
-Visit [http://localhost:3010](http://localhost:3010) to see the application.
+Visit [http://localhost:3020](http://localhost:3020) to see the application.
 
 **🎉 You're ready to go!** The application is fully set up with demo data.
 
